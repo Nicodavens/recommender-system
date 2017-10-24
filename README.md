@@ -1,2 +1,3 @@
-# recommender-system
-The theoretical side of the Initiation to Research group supervised by Serge Abiteboul at ENS Paris-Saclay https://github.com/remi-dupre/recommendation-system
+# Wikipedia Explorer: Recommender System for Wikipedia articles
+
+We aim at writing a collaborative research article about recommending wikipedia articles using reinforcement learning.
