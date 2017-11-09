@@ -1,10 +1,8 @@
 
 
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 \usepackage{scicite}
-\usepackage{times}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
-
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -75,7 +73,7 @@
 
 % Double-space the manuscript.
 
-\baselineskip24pt
+\baselineskip10pt
 
 % Make the title.
 
@@ -104,21 +102,65 @@
 \section{Retrivial of Candidate articles}
 
 \subsection{Neighbourhood}
-\subsubsection{Naive distance}
 
+Let's try to understand the idea of proximity between two articles. One way to do it is to introduce a potential function telling us the proximity between two articles.
+
+\subsubsection{Naive Similarity}
+
+Our attempt to define this potential function uses the set of categories linked to an article, it is called the similarity.
+
+
+
+
+
+\vspace*{5mm}
 \begin{defn}
   Let $A_1$ and $A_2$ be two articles. We call $C_1$ (resp. $C_2$) the set of categories linked to $A_1$ (resp. $A_2$).
-  We define the naive distance between $A_1$ and $A_2$ the following quantity:\\
+  We define the similarity of $A_1$ and $A_2$ the following quantity:\\
   \begin{equation*}
-    d(A_1,A_2) = \frac{min(Card(C_1),Card(C_2))}{Card(C_1 \cap C_2)}
+    S_W(A_1,A_2) = \frac{Card(C_1 \cap C_2)}{min(Card(C_1),Card(C_2))}
   \end{equation*}
 \end{defn}
+
+\begin{rem}
+  $\forall A_1\: A_2,\; S_W(A_1,A_2) \in [0,1]$
+\end{rem}
+
+\vspace*{5mm}
+With this definition in mind, let's seek for an output of the ``Retrivial of Candidate Articles''.
+
+
+Let's call $A_c$ the current article.
+Given an subinterval $I$ of $[0,1]$ (define in the serendipity subsection), one way to find candidate articles will be to pick randomly $N$ articles $(A_i)_{1 \leq i \leq N}$ such that:
+\begin{center}
+  $\forall i \; S_W(A_c,A_i) \in I$
+\end{center}
+
+\vspace*{5mm}
+This approach should work as long as the similarity is precise (in the case of wikipedia, it means as long as an article have a significant number of categories). Unfortunately, some articles are poorly cateorised. Thus, it is not always accurate to use this object.\\
+Therefore, an other approach is needed.
+
+
+
+
 
 
 \subsubsection{Ontology basis}
 
+
+-Modele general
+-Utilisation
+-YAGO
+
 \subsection{serendipity}
 
+\subsubsection{Similarity}
+
+-choix de I
+
+\subsubsection{Ontology}
+
+-parcours de l'Ontology
 
 
 \section{Candidate Ranking}
